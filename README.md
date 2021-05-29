@@ -23,3 +23,4 @@ Then:
 ```
 npm run start
 ```
+##Step 1 - Solo Interactions with Contracts
