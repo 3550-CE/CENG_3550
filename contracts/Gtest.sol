@@ -1,12 +1,17 @@
 pragma solidity ^0.8.4;
 
+
+// to do list
+
+
+//
 contract Test {
-     //uint256 public num = uint256(blockhash(block.number -1)) % 10;
-    uint256 public num = uint256(blockhash(block.number -1)) % 2;
+    //uint256 public num = uint256(blockhash(block.number -1)) % 10;
+    uint256 public num = uint256(blockhash(block.number -1)) % 2; 
     bool public prize;
-    uint public balance = address(this).balance;
-    event funded(address owner, uint funding);
-    address  public receiver ;
+    uint public balance = address(this).balance; // balance of the contract can't be negative
+    event funded(address owner, uint funding);   
+    address  public receiver ; // after solidity version 0.8.x+ no need to be payable     
     
     
     
@@ -20,11 +25,19 @@ contract Test {
          receiver = msg.sender;
             if(num == _num){
 
-        //   msg.sender.transfer(address(this).balance);
-            balance -= msg.value * 2;
+       
+            balance -= msg.value; 
        prize = true;
-       payable(receiver).transfer(msg.value*2);
+        //   msg.sender.transfer(address(this).balance); // for solidity 0.8.x- 
         
+       payable(receiver).transfer(msg.value*2);
+       uint256 _num = uint256(blockhash(block.number -1)) % 2;
+       num = _num;
+        }
+            else{
+                balance += msg.value;
+                uint256 _num = uint256(blockhash(block.number -1)) % 2;
+                num = _num;
     }
 }
 
@@ -32,7 +45,7 @@ contract Test {
 
 
     function fund() public payable costs(0.1 ether) returns(uint){
-        require(msg.value != 0); // funding contract
+        require(msg.value != 0); // funding the contract
       
         emit funded(msg.sender, msg.value);
         balance += msg.value;
