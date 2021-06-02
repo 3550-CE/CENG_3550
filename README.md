@@ -23,9 +23,8 @@ Then:
 ```
 npm run start
 ```
-## Step 1 - Solo Interactions with Contracts
 
-Useful codes
+Cheat Sheet
 ```
 msg.data (bytes): complete calldata
 msg.gas (uint): remaining gas - deprecated in version 0.4.21 and to be replaced by gasleft()
