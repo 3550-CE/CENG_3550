@@ -36,7 +36,8 @@ msg.value (uint): number of wei sent with the message
 
 ### Game 1 - Coin Flip ( Single Player )
 First game we created is simple coin flip, which gives the user 50% chance to double their bet. As owner of the contract, we have to fund our contract manually.
-Basically contract owner is always betting against the user.
+Basically contract owner is always betting against the user. Contract owner can receive the extra fee paid by users  to interact and use it to burn more tokens.
+(Some mainnets pay that extra fee to owners to encourage more burn. e.g BSC)
 
 - [x] Game Contract
 - [ ] Contract owner can withdraw the fund whenever they please
