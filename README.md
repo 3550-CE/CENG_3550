@@ -24,7 +24,7 @@ Then:
 npm run start
 ```
 
-Cheat Sheet
+## Cheat Sheet
 
 ```
 > msg.data (bytes): complete calldata
