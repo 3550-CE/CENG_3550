@@ -33,3 +33,10 @@ msg.sender (address): sender of the message (current call)
 msg.sig (bytes4): first four bytes of the calldata (i.e. function identifier)
 msg.value (uint): number of wei sent with the message
 ```
+First game we created is simple coin flip, which gives the user 50% chance to double their bet. As owner of the contract, we have to fund our contract manually.
+Basically contract owner is always betting against the user.
+
+- [x] Game Contract
+- [ ] Contract owner can withdraw the fund whenever they please
+- [ ] Security improvements
+
