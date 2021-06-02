@@ -34,7 +34,7 @@ msg.sig (bytes4): first four bytes of the calldata (i.e. function identifier)
 msg.value (uint): number of wei sent with the message
 ```
 
-### Game 1 - Coin Flip
+### Game 1 - Coin Flip ( Single Player )
 First game we created is simple coin flip, which gives the user 50% chance to double their bet. As owner of the contract, we have to fund our contract manually.
 Basically contract owner is always betting against the user.
 
@@ -42,3 +42,4 @@ Basically contract owner is always betting against the user.
 - [ ] Contract owner can withdraw the fund whenever they please
 - [ ] Security improvements
 
+### Game 2 - Rock Paper Scissors ( Two Players )
