@@ -45,6 +45,7 @@ Basically contract owner is always betting against the user.
 ### Game 2 - Rock Paper Scissors ( Two Players )
 Contract owner is Player 1. During deploy section, contract owner should set the bet. Player 2 will join if they can afford the same amount as bet.
 After betting section is done, Player 1 will their move. Player 2 can only play after Player1. 
-  paper beats the rock 
-  - rock beats the cissors 
-  - scissors beats the paper
+
+  - paper beats the rock 
+   - rock beats the cissors 
+    - scissors beats the paper
