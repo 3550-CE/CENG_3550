@@ -47,5 +47,9 @@ Contract owner is Player 1. During deploy section, contract owner should set the
 After betting section is done, Player 1 will their move. Player 2 can only play after Player1. 
 
    - paper beats the rock 
-   - rock beats the cissors 
+   - rock beats the scissors 
    - scissors beats the paper
+
+- [x] Game Contract
+- [ ] Time limit to prevent abuse
+- [ ] Security improvements
