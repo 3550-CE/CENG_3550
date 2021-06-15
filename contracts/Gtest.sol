@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity >=0.8.5;
 
 contract Test {
     //uint256 public num = uint256(blockhash(block.number -1)) % 10;
@@ -40,6 +40,6 @@ contract Test {
     }
 
     function get() public view returns (uint256) {
-        return 3131;
+        return num;
     }
 }
