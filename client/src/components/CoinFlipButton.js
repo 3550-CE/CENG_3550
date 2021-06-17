@@ -13,11 +13,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CoinFlipButton({ onClick, title, value }) {
+export default function CoinFlipButton({ onClick, title, value, isItfund }) {
   const classes = useStyles();
 
   return (
-    <Button variant="outlined" onClick={onClick} className={classes.button}>
+    <Button
+      variant="outlined"
+      onClick={onClick}
+      className={classes.button}
+      style={isItfund ? { width: 500, height: 150 } : {}}
+    >
       {title}
     </Button>
   );

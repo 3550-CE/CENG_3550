@@ -6,24 +6,30 @@ import "../contracts/SimpleStorage.sol";
 import "../contracts/Gtest.sol";
 
 contract TestSimpleStorage {
+    function testItStoresAValue() public {
+        SimpleStorage simpleStorage =
+            SimpleStorage(DeployedAddresses.SimpleStorage());
 
-  function testItStoresAValue() public {
-    SimpleStorage simpleStorage = SimpleStorage(DeployedAddresses.SimpleStorage());
+        simpleStorage.set(89);
 
-    simpleStorage.set(89);
+        uint256 expected = 89;
 
-    uint expected = 89;
+        Assert.equal(
+            simpleStorage.get(),
+            expected,
+            "It should store the value 89."
+        );
+    }
+}
 
-    Assert.equal(simpleStorage.get(), expected, "It should store the value 89.");
-  }
-  function testItStoresAValue2() public {
-    Test flip = Test(DeployedAddresses.Test());
+contract TestSimpleStorage {
+    function testItStoresAValue2() public {
+        Test flip = Test(DeployedAddresses.Test());
 
-    flip.set(0);
+        flip.set(0);
 
-    uint expected = true;
+        uint256 expected = 1;
 
-    Assert.equal(flip.get(), expected, "It should store the value 89.");
-  }
-
+        Assert.equal(flip.get(), expected, "It should store the value 89.");
+    }
 }
