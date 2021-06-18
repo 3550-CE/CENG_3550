@@ -47,11 +47,8 @@ Basically contract owner is always betting against the user. Contract owner can 
 - [ ] Contract owner can withdraw the fund whenever they please
 - [ ] Security improvements
 
-
-![flow](https://user-images.githubusercontent.com/39493937/122539575-69627580-d030-11eb-9c2f-1f0a86d4bf98.png)
-
-![Screenshot (68)](https://user-images.githubusercontent.com/39493937/122539391-36b87d00-d030-11eb-9fa0-927199ab525f.png)
-
+![flow](./images/flow.png)
+![screenshot](./images/screenshot.png)
 
 ### Game 2 - Rock Paper Scissors ( Two Players )
 Contract owner is Player 1. During deploy section, contract owner should set the bet. Player 2 will join if they can afford the same amount as bet.
