@@ -25,6 +25,7 @@ class App extends Component {
 
   componentDidMount = async () => {
     try {
+      console.log("in effect");
       const web3 = await getWeb3();
 
       const accounts = await web3.eth.getAccounts();
@@ -33,10 +34,16 @@ class App extends Component {
 
       const instance = await new web3.eth.Contract(
         coinFlipContract.abi,
-        "0xa9c0A3FcADCf5C908C9FE21Cd31F50d2093D9fd9"
+        "0xDf4AAF75bd2bd7D42134557d7acA52976493A0b5"
       );
 
-      this.setState({ web3, accounts, contract: instance });
+      const balance = await instance.methods.balance().call();
+      this.setState({
+        web3,
+        accounts,
+        contract: instance,
+        balance: balance / 1000000000000000000,
+      });
     } catch (error) {
       alert(
         `Failed to load web3, accounts, or contract. Check console for details.`
@@ -48,26 +55,25 @@ class App extends Component {
     this.setState({ input: event.target.value });
   };
 
-  coinFlip = async () => {
+  coinFlip = async (x) => {
     try {
       const { accounts, contract } = this.state;
-
-      //await contract.methods.set(0).send({ from: accounts[0] });
-      // Get the value from the contract to prove it worked.
 
       if (this.state.balance < 1) {
         alert("Insufficient balance.");
         throw "Insufficient balance";
       }
       await contract.methods
-        .set(1)
+        .set(x)
         .send({ from: accounts[0], value: 1 * 10 ** 18 });
       const num = await contract.methods.num().call();
-      num == 1 ? this.setState({ status: 1 }) : this.setState({ status: 2 });
-      console.log(num);
-      // Update state with the result.
-      const balance = await contract.methods.balance().call();
-      this.setState({ balance: balance / 1000000000000000000 });
+      let newBalance = await contract.methods.balance().call();
+      newBalance = newBalance / 1000000000000000000;
+      newBalance < this.state.balance
+        ? this.setState({ status: 1 })
+        : this.setState({ status: 2 });
+
+      this.setState({ balance: newBalance });
     } catch (error) {
       console.log(error);
     }
@@ -117,16 +123,26 @@ class App extends Component {
           Flip a Coin
         </Typography>
         <Typography variant="h4" component="h2" gutterBottom>
-          Head or Tails?
+          Head or Tails? (1ETH)
         </Typography>
         <div style={{ marginTop: 16 }}>
-          <CoinFlipButton title="Heads" value={0} onClick={this.coinFlip} />
-          <CoinFlipButton title="Tails" value={1} onClick={this.coinFlip} />
+          <CoinFlipButton
+            title="Heads"
+            value={0}
+            onClick={() => this.coinFlip(0)}
+          />
+          <CoinFlipButton
+            title="Tails"
+            value={1}
+            onClick={() => this.coinFlip(1)}
+          />
         </div>
         <Typography variant="h3" component="h3" gutterBottom>
           Balance: {this.state.balance}
         </Typography>
-
+        <Typography variant="h3" component="h3" gutterBottom>
+          {status}
+        </Typography>
         <CoinFlipButton
           title="Add Funds (5 eth)"
           onClick={this.addFunds}
