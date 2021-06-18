@@ -46,6 +46,8 @@ Basically contract owner is always betting against the user. Contract owner can 
 - [x] Game Contract
 - [ ] Contract owner can withdraw the fund whenever they please
 - [ ] Security improvements
+
+
 ![flow](https://user-images.githubusercontent.com/39493937/122539575-69627580-d030-11eb-9c2f-1f0a86d4bf98.png)
 
 ![Screenshot (68)](https://user-images.githubusercontent.com/39493937/122539391-36b87d00-d030-11eb-9fa0-927199ab525f.png)
