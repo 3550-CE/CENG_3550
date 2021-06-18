@@ -47,7 +47,7 @@ Basically contract owner is always betting against the user. Contract owner can 
 - [ ] Contract owner can withdraw the fund whenever they please
 - [ ] Security improvements
 
-![flow](./images/flow.png)
+![flow](./images/flow-white.png)
 ![screenshot](./images/screenshot.png)
 
 ### Game 2 - Rock Paper Scissors ( Two Players )
