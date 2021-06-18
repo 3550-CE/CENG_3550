@@ -25,6 +25,8 @@ npm run start
 ```
 ## Deflationary Approaches with the Help of Gamification
 
+![Game](https://user-images.githubusercontent.com/39493937/122539475-518af180-d030-11eb-9aa4-e242632ca5c7.PNG)
+
 
 ## Cheat Sheet
 
